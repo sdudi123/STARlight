@@ -119,11 +119,6 @@ C     >> Set Counter to Zero
       DO 42 I=1, NHKK
 c      I = IPART
 
-CC       >> Remove all non-final-state particles except phi and K*0
-         IF (.NOT.(ISTHKK(I).EQ.1 .OR. ISTHKK(I).EQ.-1 .OR.
-     1     ISTHKK(I).EQ.1001 .OR. (ISTHKK(I).EQ.2 .AND.
-     1     (IDHKK(I).EQ.333 .OR. IDHKK(I).EQ.313 .OR.
-     1     IDHKK(I).EQ.-313)))) GOTO 42
 * --- Decide if particle is kept ---
      
       KEEPPARTICLE = .FALSE.
@@ -179,4 +174,5 @@ C         >> not a final state particle, qch not interesting
       SUBROUTINE DT_USRHIS(MODE)
 c Dummy to make the linker happy
       END
+
 
