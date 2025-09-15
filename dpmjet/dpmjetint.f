@@ -111,7 +111,7 @@ c     Fill the particle info
       INTEGER KEEP_PHI, KEEP_KSTAR, KEEP_RHO0, KEEP_LAMBDASTAR
       COMMON /DPMJET_SWITCHES/ KEEP_PHI, KEEP_KSTAR, KEEP_RHO0,
      & KEEP_LAMBDASTAR
-
+      DATA KEEP_PHI, KEEP_KSTAR, KEEP_RHO0, KEEP_LAMBDASTAR /1,1,0,0/
 C     >> Set Counter to Zero
       LOGICAL KEEPPARTICLE
       Nfinal=0
@@ -125,8 +125,7 @@ c      I = IPART
 
 * --- Always keep stable particles ---
       IF (ISTHKK(I).EQ.1 .OR. ISTHKK(I).EQ.-1 .OR. ISTHKK(I).EQ.1001)
-     & THEN KEEPPARTICLE = .TRUE.
-      ENDIF
+     &  KEEPPARTICLE = .TRUE.      
 
 * --- Keep selected resonances according to switches ---
       IF (KEEP_PHI.EQ.1 .AND. ISTHKK(I).EQ.2 .AND. IDHKK(I).EQ.333)
@@ -174,5 +173,6 @@ C         >> not a final state particle, qch not interesting
       SUBROUTINE DT_USRHIS(MODE)
 c Dummy to make the linker happy
       END
+
 
 
